@@ -1,3 +1,21 @@
+const numBtn = document.querySelectorAll('.num-btn');
+//const numBtn = document.getElementsByClassName('num-btn');
+const display = document.getElementById('display');
+
+
+function clickNum (){
+    Array.from(numBtn).forEach(function (num) {
+        num.onclick = function() {
+            display.innerHTML = num.innerHTML;
+        }
+    })
+};
+clickNum();
+
+//numBtn.addEventListener('click', clickNum);
+
+
+
 
 const add = function (num1, num2) {
     const total = num1 + num2;
