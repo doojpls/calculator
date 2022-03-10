@@ -1,6 +1,11 @@
 const numBtn = document.querySelectorAll('.num-btn');
 const display = document.getElementById('display');
+
+const addBtn = document.getElementById('add-btn');
+const subtractBtn = document.getElementById('subtract-btn');
+const multiplyBtn = document.getElementById('multiply-btn');
 const divideBtn = document.getElementById('divide-btn');
+
 const equalBtn = document.getElementById('equal-btn');
 
 const displayValue = display.innerHTML;
@@ -11,57 +16,86 @@ numBtn.forEach(num => {
         display.innerHTML += num.innerHTML;
     });
 })
-let num1 = [];
-let num2 = [];
+let num1 = 0;
+let num2 = 0;
+let operator = "";
+
+//stores first nums set when clicking add btn
+function addNums() {
+//    num1.push(display.innerHTML);
+    num1 = display.innerHTML
+    console.log(num1);
+    operator = "+";
+    display.innerHTML = "";
+}
+addBtn.addEventListener('click', addNums);
+
+//stores first nums set when clicking subtract btn
+function subtractNums() {
+    num1 = display.innerHTML;
+    display.innerHTML = "";
+    operator = "-";
+    console.log(num1);
+}
+subtractBtn.addEventListener('click', subtractNums);
 
 //stores first nums set when clicking divide btn
 function divideNums() {
-    num1.push(display.innerHTML);
+    num1 = display.innerHTML;
     display.innerHTML = "";
-    console.log(num1)
+    operator = "/";
+    console.log(num1);
 }
 divideBtn.addEventListener('click', divideNums);
 
+//stores first nums set when clicking multiply btn
+function multiplyNums() {
+    num1 = display.innerHTML;
+    display.innerHTML = "";
+    operator = "*";
+    console.log(num1);
+}
+multiplyBtn.addEventListener('click', multiplyNums);
+
+
+//stores second set of numbers and calls operator function
 function equals () {
-    num2.push(display.innerHTML);
+    num2 = display.innerHTML;
     console.log(num2);
-    total = num1 / num2;
-    display.innerHTML = total;
+    operate();
 }
 equalBtn.addEventListener('click', equals);
 
 
-const add = function (num1, num2) {
-    const total = num1 + num2;
-    return total;
+const add = function () {
+    const total = parseInt(num1) + parseInt(num2);
+    display.innerHTML = total
 };
 
-const subtract = function (num1, num2) {
-    const total = num1 - num2;
-    return total;
+const subtract = function () {
+    const total = parseInt(num1) - parseInt(num2);
+    display.innerHTML = total
 };
 
-const divide = function (num1, num2) {
-    const total = num1 / num2;
-    return total;
+function divide() {
+    const total = parseInt(num1) / parseInt(num2);
+    display.innerHTML = total
 };
 
-const multiply = function (num1, num2) {
-    const total = num1 * num2;
-    return total;
+const multiply = function () {
+    const total = parseInt(num1) * parseInt(num2);
+    display.innerHTML = total
 };
 
-
-const operate = function (operator, num1, num2) {
-    if (operator === 'add') {
-        return add(num1, num2);
-    } else if (operator === 'subtract') {
-        return subtract(num1, num2);
-    } else if (operator === 'divide') {
-        return divide(num1, num2);
-    } else if (operator === 'multiply') {
-        return multiply(num1,num2);
-    } else return "not a valid response";
+//checks which operator is clicked and calls its function
+ function operate() {
+    if (operator === '+') {
+        add();
+    } else if (operator === '-') {
+        subtract();
+    } else if (operator === '/') {
+        divide();
+    } else if (operator === '*') {
+        multiply();
+    }
 };
-
-console.log(operate('mult', 5, 8));
