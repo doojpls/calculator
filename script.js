@@ -20,9 +20,8 @@ let num1 = 0;
 let num2 = 0;
 let operator = "";
 
-//stores first nums set when clicking add btn
+//stores first set of displayed numbers when clicking add btn
 function addNums() {
-//    num1.push(display.innerHTML);
     num1 = display.innerHTML
     console.log(num1);
     operator = "+";
@@ -68,22 +67,22 @@ equalBtn.addEventListener('click', equals);
 
 
 const add = function () {
-    const total = parseInt(num1) + parseInt(num2);
+    const total = parseFloat(num1) + parseFloat(num2);
     display.innerHTML = total
 };
 
 const subtract = function () {
-    const total = parseInt(num1) - parseInt(num2);
+    const total = parseFloat(num1) - parseInt(num2);
     display.innerHTML = total
 };
 
 function divide() {
-    const total = parseInt(num1) / parseInt(num2);
+    const total = parseFloat(num1) / parseFloat(num2);
     display.innerHTML = total
 };
 
 const multiply = function () {
-    const total = parseInt(num1) * parseInt(num2);
+    const total = parseFloat(num1) * parseFloat(num2);
     display.innerHTML = total
 };
 
@@ -99,3 +98,7 @@ const multiply = function () {
         multiply();
     }
 };
+
+let sums = p(10.25) * parseFloat(3.5);
+
+console.log(sums);
