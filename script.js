@@ -1,20 +1,22 @@
 const numBtn = document.querySelectorAll('.num-btn');
-//const numBtn = document.getElementsByClassName('num-btn');
 const display = document.getElementById('display');
 
+numBtn.forEach(num => {
+    num.addEventListener('click', function clickNum() {
+        display.innerHTML += num.innerHTML;
+    });
+})
 
-function clickNum (){
-    Array.from(numBtn).forEach(function (num) {
-        num.onclick = function() {
-            display.innerHTML = num.innerHTML;
-        }
-    })
-};
-clickNum();
-
-//numBtn.addEventListener('click', clickNum);
-
-
+//clicking on number displays number
+//function clickNum (){
+ //   Array.from(numBtn).forEach(function (num) {
+//        let numDisplay = display.innerHTML
+//        num.onclick = function() {
+ //           display.innerHTML += num.innerHTML;
+ //       }
+ //   })
+//};
+//clickNum();
 
 
 const add = function (num1, num2) {
@@ -44,6 +46,7 @@ const multiply = function (num1, num2) {
 }
 
 console.log(multiply(5, 7));
+
 
 const operate = function (operator, num1, num2) {
     if (operator === 'add') {
