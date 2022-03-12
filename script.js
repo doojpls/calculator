@@ -98,7 +98,3 @@ const multiply = function () {
         multiply();
     }
 };
-
-let sums = p(10.25) * parseFloat(3.5);
-
-console.log(sums);
