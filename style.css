@@ -7,19 +7,17 @@ body {
     background-color: #1C0C5B;
     display: inline-flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 20px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    width: 400px;
+    width: 350px;
     box-shadow: 10px 10px 5px #78729A ;
-}
-
-button {
+    gap: 30px;
 }
 
 .main-btns {
-    flex-wrap: wrap;
+    display: flex;
 }
 
 .num-btn {
@@ -29,7 +27,7 @@ button {
     border: none;
     border-radius: 2px;
     color: #1C0C5B;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .operator-btn {
@@ -38,7 +36,7 @@ button {
     background-color: #FF5677;
     border: none;
     border-radius: 2px;
-    font-size: 50px;
+    font-size: 40px;
     color: white;
 }
 
@@ -52,9 +50,16 @@ button {
     color: white;
 }
 
-.display {
+#display {
     height: 80px;
+    width: 320px;
+    background-color: white;
+    opacity: 70%;
+    border-radius: 2px;
+    justify-content: center;
+    margin: auto;
 }
+
 
 
 
