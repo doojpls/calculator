@@ -14,16 +14,16 @@ const displayValue = display.innerHTML;
 //display number after clicked
 numBtn.forEach(num => {
     num.addEventListener('click', function clickNum() {
-        display.innerHTML += num.innerHTML;
+        display.innerHTML = num.innerHTML;
     });
 })
-let num1 = 0;
+let num1 = [];
 let num2 = 0;
 let operator = "";
 
 //stores first set of displayed numbers when clicking add btn
 function addNums() {
-    num1 = display.innerHTML
+    num1 = display.innerHTML;
     console.log(num1);
     operator = "+";
     display.innerHTML = "";
@@ -50,13 +50,14 @@ divideBtn.addEventListener('click', divideNums);
 
 //stores first nums set when clicking multiply btn
 function multiplyNums() {
-    num1 = display.innerHTML;
-    display.innerHTML = "";
+    num1.push(display.innerHTML);
+    const newNum = num1.reduce(myFunc);
+    display.innerHTML = newNum;
     operator = "*";
     console.log(num1);
+    console.log(newNum);
 }
 multiplyBtn.addEventListener('click', multiplyNums);
-
 
 //stores second set of numbers and calls operator function
 function equals () {
@@ -82,9 +83,14 @@ function divide() {
     display.innerHTML = total
 };
 
+const nums = [1, 2, 3];
+function myFunc (total, num) {
+    return (total * num);
+}
+
 const multiply = function () {
     const total = parseFloat(num1) * parseFloat(num2);
-    display.innerHTML = total
+    display.innerHTML = total;
 };
 
 //checks which operator is clicked and calls its function
@@ -103,6 +109,7 @@ const multiply = function () {
 //clears screen
 function clear () {
     display.innerHTML = '';
+    num1 = [];
 }
 clearBtn.addEventListener('click', clear);
 
