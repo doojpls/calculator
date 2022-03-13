@@ -1,64 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Press+Start+2P&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Days+One&family=Graduate&display=swap');
+
 body {
     text-align: center;
     margin: 100px;
+    background-color: #E6E6E6;
 }
 
 .calc-container {
     background-color: #1C0C5B;
     display: inline-flex;
     flex-direction: column;
-    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    width: 350px;
-    box-shadow: 10px 10px 5px #78729A ;
+    border-radius: 20px;
+    width: 380px;
+    box-shadow: 10px 10px 2px #78729A ;
     gap: 30px;
 }
 
 .main-btns {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button:hover {
+    background-color: #78729A;
+    color: white;
+    transition: 0.1s ease-in-out;
 }
 
 .num-btn {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     background-color: white;
-    border: none;
-    border-radius: 2px;
     color: #1C0C5B;
     font-size: 40px;
+    font-weight: 500;
 }
 
 .operator-btn {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     background-color: #FF5677;
-    border: none;
-    border-radius: 2px;
     font-size: 40px;
     color: white;
+    font-size: 40px;
+    font-weight: 500;
 }
 
-#clear {
+.bottom-btns {
     background-color: #FF5677;
-    border: none;
-    border-radius: 2px;
-    width: 160px;
+    width: 152px;
     height: 40px;
     font-size: 25px;
     color: white;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.btn {
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 #display {
     height: 80px;
     width: 320px;
-    background-color: white;
-    opacity: 70%;
+    background-color: #78729A;
     border-radius: 2px;
-    justify-content: center;
-    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
 }
+
+#display-num {
+    color: white;
+    font-size: 40px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    right: 0;
+    font-family: 'Graduate', cursive;
+    font-weight: 800;
+}
+
+
 
 
 

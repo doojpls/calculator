@@ -1,5 +1,5 @@
 const numBtn = document.querySelectorAll('.num-btn');
-const display = document.getElementById('display');
+const display = document.getElementById('display-num');
 
 const addBtn = document.getElementById('add-btn');
 const subtractBtn = document.getElementById('subtract-btn');
@@ -7,7 +7,8 @@ const multiplyBtn = document.getElementById('multiply-btn');
 const divideBtn = document.getElementById('divide-btn');
 
 const equalBtn = document.getElementById('equal-btn');
-
+const clearBtn = document.getElementById('clear');
+const backBtn = document.getElementById('delete');
 const displayValue = display.innerHTML;
 
 //display number after clicked
@@ -98,3 +99,15 @@ const multiply = function () {
         multiply();
     }
 };
+
+//clears screen
+function clear () {
+    display.innerHTML = '';
+}
+clearBtn.addEventListener('click', clear);
+
+//goes back one number
+function back() {
+    display.innerHTML = display.innerHTML.slice(0, -1);
+}
+backBtn.addEventListener('click', back);
