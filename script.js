@@ -14,12 +14,30 @@ const displayValue = display.innerHTML;
 //display number after clicked
 numBtn.forEach(num => {
     num.addEventListener('click', function clickNum() {
+        if (numDisplayStored === 0) {
         display.innerHTML = num.innerHTML;
+        } else {
+            display.innerHTML += num.innerHTML;
+        }
+        numDisplayStored++
+        currentNum = display.innerHTML;
+        //console.log("this is the current num: " + currentNum);
+        //console.log("this is the current num: " + previousNum);
     });
-})
-let num1 = [];
-let num2 = 0;
-let operator = "";
+});
+
+currentNum = "";
+total = "";
+numDisplayStored = 0;
+prevNumStored = 1
+
+//let sum = 1
+//let num1 = display.innerHTML;
+//let num2 = 0;
+//let operator = "";
+//let numDisplayStored = 0;
+
+//
 
 //stores first set of displayed numbers when clicking add btn
 function addNums() {
@@ -50,17 +68,17 @@ divideBtn.addEventListener('click', divideNums);
 
 //stores first nums set when clicking multiply btn
 function multiplyNums() {
-    num1.push(display.innerHTML);
-    const newNum = num1.reduce(myFunc);
-    display.innerHTML = newNum;
-    operator = "*";
-    console.log(num1);
-    console.log(newNum);
+//    operator = "*";
+    numDisplayStored = 0;
+    console.log("this is the total num: " + total)
+    console.log("this is the current num:" + currentNum);
+    total = currentNum;
 }
 multiplyBtn.addEventListener('click', multiplyNums);
 
 //stores second set of numbers and calls operator function
 function equals () {
+   // display.innerHTML = "";
     num2 = display.innerHTML;
     console.log(num2);
     operate();
@@ -83,14 +101,10 @@ function divide() {
     display.innerHTML = total
 };
 
-const nums = [1, 2, 3];
-function myFunc (total, num) {
-    return (total * num);
-}
-
 const multiply = function () {
-    const total = parseFloat(num1) * parseFloat(num2);
-    display.innerHTML = total;
+    if (!(total === "")) {
+   display.innerHTML = parseFloat(currentNum) * parseFloat(total);
+    }
 };
 
 //checks which operator is clicked and calls its function
